@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|solutionrelative:functionapp1\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|solutionrelative:functionapp1\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|solutionrelative:functionapp1\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|solutionrelative:functionapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|solutionrelative:functionapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|solutionrelative:functionapp1\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\FunctionApp1.csproj|solutionrelative:functionapp1\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|c:\\users\\usuario\\source\\repos\\functionapp1\\functionapp1\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{99043BBC-C3FF-4726-89B4-00FF8D0538C8}|FunctionApp1\\Pedido.csproj|solutionrelative:functionapp1\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,29 +30,27 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "local.settings.json",
               "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\FunctionApp1\\local.settings.json",
               "RelativeDocumentMoniker": "FunctionApp1\\local.settings.json",
               "ToolTip": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\FunctionApp1\\local.settings.json",
               "RelativeToolTip": "FunctionApp1\\local.settings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAC2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-07T15:44:30.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T18:42:27.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\FunctionApp1\\Program.cs",
               "RelativeDocumentMoniker": "FunctionApp1\\Program.cs",
               "ToolTip": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\FunctionApp1\\Program.cs",
               "RelativeToolTip": "FunctionApp1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T05:48:12.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T05:48:12.971Z"
             },
             {
               "$type": "Document",
@@ -64,8 +62,7 @@
               "RelativeToolTip": "FunctionApp1\\host.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-06T23:33:52.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T23:33:52.682Z"
             },
             {
               "$type": "Document",
@@ -75,7 +72,7 @@
               "RelativeDocumentMoniker": "FunctionApp1\\Function1.cs",
               "ToolTip": "C:\\Users\\Usuario\\source\\repos\\FunctionApp1\\FunctionApp1\\Function1.cs",
               "RelativeToolTip": "FunctionApp1\\Function1.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAEUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T00:17:54.299Z",
               "EditorCaption": ""

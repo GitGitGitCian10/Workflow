@@ -2,11 +2,9 @@ using System.Text;
 using Azure.Messaging.EventHubs;
 using Azure.Messaging.EventHubs.Producer;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Azure.Cosmos.Serialization.HybridRow;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace FunctionApp1
 {
@@ -31,7 +29,6 @@ namespace FunctionApp1
             foreach (EventData @event in events)
             {
                 string jsonString = System.Text.Encoding.UTF8.GetString(@event.EventBody.ToArray());
-                _logger.LogInformation($"Received message: {jsonString}");
 
                 using var batch = await _producerClient.CreateBatchAsync();
                 dynamic jsonObject = JsonConvert.DeserializeObject(jsonString);
@@ -53,9 +50,23 @@ namespace FunctionApp1
                             quantity = response.Resource[0];
                         }
                     }
-                    if(quantity - Convert.ToInt32(jsonObject["Quantity"]) > 0)
+                    if(quantity - Convert.ToInt32(jsonObject["Quantity"]) >= 0)
                     {
-                        jsonObject.EventType = "SuccessReserveStock";
+                        queryString = "SELECT * FROM c WHERE c.ProductId = '" + jsonObject.ProductId + "'";
+                        dynamic result = 0;
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                        {
+                            while (iterator.HasMoreResults)
+                            {
+                                FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                                result = response.Resource.First();
+                            }
+                        }
+                        result.Quantity -= Convert.ToInt32(jsonObject["Quantity"]);
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.ProductId.ToString()));
+
+                        jsonObject.EventType = "SuccessReservaStock";
+                        jsonObject.Price = result.Price * Convert.ToInt32(jsonObject["Quantity"]);
                         string jsonToSend = JsonConvert.SerializeObject(jsonObject);
 
                         batch.TryAdd(new EventData(Encoding.UTF8.GetBytes(jsonToSend)));
@@ -70,6 +81,19 @@ namespace FunctionApp1
                 }
                 else if(jsonObject.EventType == "UndoStock")
                 {
+                    var queryString = "SELECT * FROM c WHERE c.ProductId = '" + jsonObject.ProductId + "'";
+                    dynamic result = 0;
+                    using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                    {
+                        while (iterator.HasMoreResults)
+                        {
+                            FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                            result = response.Resource.First();
+                        }
+                    }
+                    result.Quantity += Convert.ToInt32(jsonObject["Quantity"]);
+                    await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.ProductId.ToString()));
+
                     jsonObject.EventType = "SuccessUndoStock";
                     string jsonToSend = JsonConvert.SerializeObject(jsonObject);
 
