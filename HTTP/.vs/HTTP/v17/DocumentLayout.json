@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\source\\repos\\HTTP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|c:\\users\\usuario\\source\\repos\\http\\http\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|solutionrelative:http\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|c:\\users\\usuario\\source\\repos\\http\\http\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|solutionrelative:http\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|c:\\users\\usuario\\source\\repos\\http\\http\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3152CCD8-2882-4A96-B792-7426A05E6E5F}|HTTP\\HTTP.csproj|solutionrelative:http\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\Program.cs",
+              "RelativeDocumentMoniker": "HTTP\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\Program.cs",
+              "RelativeToolTip": "HTTP\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T19:23:44.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "local.settings.json",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\local.settings.json",
+              "RelativeDocumentMoniker": "HTTP\\local.settings.json",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\local.settings.json",
+              "RelativeToolTip": "HTTP\\local.settings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-16T19:23:42.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Function1.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\Function1.cs",
+              "RelativeDocumentMoniker": "HTTP\\Function1.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\HTTP\\HTTP\\Function1.cs",
+              "RelativeToolTip": "HTTP\\Function1.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T19:19:02.628Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -37,11 +37,14 @@ namespace Orchestrator
                 _logger.LogInformation($"Received message: {jsonString}");
 
                 dynamic jsonObject = JsonConvert.DeserializeObject(jsonString);
-                var container = _cosmosClient.GetContainer("cdb-orch", "Container1");       
+                var container = _cosmosClient.GetContainer("cdb-orch", "Container1");
+
+                string queryString = "";
+                dynamic result = 0;
 
                 switch (Convert.ToString(jsonObject.EventType))
                 {
-                    case "BeginTransaction":
+                    case "BeginTransaction": // Evento que empieza la transacción
                         var batchPedido1 = await _eventHubPedido.CreateBatchAsync();
 
                         var transaction = new { id = jsonObject.id, TransactionId = jsonObject.id, AccountId = jsonObject.AccountId, ProductId = jsonObject.ProductId, Quantity = jsonObject.Quantity, Status = "Pending" };
@@ -54,7 +57,7 @@ namespace Orchestrator
                         
                         await _eventHubPedido.SendAsync(batchPedido1);
                         break;
-                    case "SuccessCrearPedido":
+                    case "SuccessCrearPedido": // Evento de reservar stock a un pedido creado
                         var batchInventario1 = await _eventHubInventario.CreateBatchAsync();
 
                         var myObj2 = new { id = jsonObject.id, AccountId = jsonObject.AccountId, EventType = "ReservaStock", ProductId = jsonObject.ProductId, Quantity = jsonObject.Quantity };
@@ -64,43 +67,71 @@ namespace Orchestrator
 
                         await _eventHubInventario.SendAsync(batchInventario1);
                         break;
-                    case "ErrorCrearPedido":
-                        var queryString1 = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
-                        dynamic result1 = 0;
-                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString1))
+                    case "ErrorCrearPedido": // Evento de cancelar transacción debido a pedido fallido
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
                         {
                             while (iterator.HasMoreResults)
                             {
                                 FeedResponse<dynamic> response = await iterator.ReadNextAsync();
-                                result1 = response.Resource.First();
+                                result = response.Resource.First();
                             }
                         }
-                        result1.Status = "Cancelled";
-                        await container.ReplaceItemAsync(result1, result1.id.ToString(), new PartitionKey(result1.TransactionId.ToString()));
+                        result.Status = "Cancelled";
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.TransactionId.ToString()));
 
                         break;
-                    case "SuccessCancelarPedido":
-
-                        break;
-                    case "ErrorCancelarPedido":
-
-                        break;
-                    case "SuccessCompletarPedido":
-                        var queryString2 = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
-                        dynamic result2 = 0;
-                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString2))
+                    case "SuccessCancelarPedido": // Evento de cancelar transacción debido a pedido cancelado
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
                         {
                             while (iterator.HasMoreResults)
                             {
                                 FeedResponse<dynamic> response = await iterator.ReadNextAsync();
-                                result2 = response.Resource.First();
+                                result = response.Resource.First();
                             }
                         }
-                        result2.Status = "Completed";
-                        await container.ReplaceItemAsync(result2, result2.id.ToString(), new PartitionKey(result2.TransactionId.ToString()));
+                        result.Status = "Cancelled";
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.TransactionId.ToString()));
                         break;
-                    case "ErrorCompletarPedido":
-
+                    case "ErrorCancelarPedido": // Evento de cancelar transacción debido a cancelación de pedido fallida
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                        {
+                            while (iterator.HasMoreResults)
+                            {
+                                FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                                result = response.Resource.First();
+                            }
+                        }
+                        result.Status = "Cancelled";
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.TransactionId.ToString()));
+                        break;
+                    case "SuccessCompletarPedido": // Evento de completar transacción debido a pedido completado
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                        {
+                            while (iterator.HasMoreResults)
+                            {
+                                FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                                result = response.Resource.First();
+                            }
+                        }
+                        result.Status = "Completed";
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.TransactionId.ToString()));
+                        break;
+                    case "ErrorCompletarPedido": // Evento de completar transacción debido a completación de pedido fallida ????
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                        {
+                            while (iterator.HasMoreResults)
+                            {
+                                FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                                result = response.Resource.First();
+                            }
+                        }
+                        result.Status = "Completed";
+                        await container.ReplaceItemAsync(result, result.id.ToString(), new PartitionKey(result.TransactionId.ToString()));
                         break;
                     case "SuccessReservaStock":
                         var batchPago1 = await _eventHubPago.CreateBatchAsync();
@@ -115,7 +146,7 @@ namespace Orchestrator
                     case "ErrorReservaStock":
                         var batchPedido2 = await _eventHubPedido.CreateBatchAsync();
 
-                        var myObj3 = new { EventType = "CancelarPedido", OrderId = jsonObject.id };
+                        var myObj3 = new { id = jsonObject.id, EventType = "CancelarPedido", OrderId = jsonObject.id };
                         string jsonToSend3 = JsonConvert.SerializeObject(myObj3);
 
                         batchPedido2.TryAdd(new EventData(Encoding.UTF8.GetBytes(jsonToSend3)));
@@ -123,7 +154,14 @@ namespace Orchestrator
                         await _eventHubPedido.SendAsync(batchPedido2);
                         break;
                     case "SuccessUndoStock":
+                        var batchPedido4 = await _eventHubPedido.CreateBatchAsync();
 
+                        var myObj6 = new { id = jsonObject.id, EventType = "CancelarPedido", OrderId = jsonObject.id };
+                        string jsonToSend6 = JsonConvert.SerializeObject(myObj6);
+
+                        batchPedido4.TryAdd(new EventData(Encoding.UTF8.GetBytes(jsonToSend6)));
+
+                        await _eventHubPedido.SendAsync(batchPedido4);
                         break;
                     case "SuccessRealizarPago":
                         var batchPedido3 = await _eventHubPedido.CreateBatchAsync();
@@ -136,7 +174,23 @@ namespace Orchestrator
                         await _eventHubPedido.SendAsync(batchPedido3);
                         break;
                     case "ErrorRealizarPago":
+                        queryString = "SELECT * FROM c WHERE c.TransactionId = '" + jsonObject.id + "'";
+                        using (FeedIterator<dynamic> iterator = container.GetItemQueryIterator<dynamic>(queryString))
+                        {
+                            while (iterator.HasMoreResults)
+                            {
+                                FeedResponse<dynamic> response = await iterator.ReadNextAsync();
+                                result = response.Resource.First();
+                            }
+                        }
+                        var batchInventario2 = await _eventHubInventario.CreateBatchAsync();
 
+                        var myObj7 = new { id = jsonObject.id, EventType = "UndoStock", ProductId = result.ProductId.ToString(), Quantity = result.Quantity };
+                        string jsonToSend7 = JsonConvert.SerializeObject(myObj7);
+
+                        batchInventario2.TryAdd(new EventData(Encoding.UTF8.GetBytes(jsonToSend7)));
+
+                        await _eventHubInventario.SendAsync(batchInventario2);
                         break;
                     case "SuccessDeshacerPago":
 

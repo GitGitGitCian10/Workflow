@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|solutionrelative:orch\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|c:\\users\\usuario\\documents\\adaii\\workflow\\orch\\orch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|solutionrelative:orch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|c:\\users\\usuario\\documents\\adaii\\workflow\\orch\\orch\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|solutionrelative:orch\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|c:\\users\\usuario\\documents\\adaii\\workflow\\orch\\orch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9429B1A-60F7-47C1-B273-D4ECD873F187}|Orch\\Orch.csproj|solutionrelative:orch\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,19 +26,20 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "local.settings.json",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\ADAII\\Workflow\\Orch\\Orch\\local.settings.json",
               "RelativeDocumentMoniker": "Orch\\local.settings.json",
               "ToolTip": "C:\\Users\\Usuario\\Documents\\ADAII\\Workflow\\Orch\\Orch\\local.settings.json",
               "RelativeToolTip": "Orch\\local.settings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAADCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-14T17:08:58.744Z"
+              "WhenOpened": "2024-10-14T17:08:58.744Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\ADAII\\Workflow\\Orch\\Orch\\Program.cs",
               "RelativeDocumentMoniker": "Orch\\Program.cs",
@@ -46,7 +47,8 @@
               "RelativeToolTip": "Orch\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T17:07:58.587Z"
+              "WhenOpened": "2024-10-14T17:07:58.587Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,7 +58,7 @@
               "RelativeDocumentMoniker": "Orch\\Function1.cs",
               "ToolTip": "C:\\Users\\Usuario\\Documents\\ADAII\\Workflow\\Orch\\Orch\\Function1.cs",
               "RelativeToolTip": "Orch\\Function1.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAQwF4AAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwE8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T17:07:12.577Z",
               "EditorCaption": ""
